@@ -14,7 +14,7 @@ const config = require('./config');
 
 
 // MiddleWares
-    app.use(morgan('dev'));
+    if(config.DEV)app.use(morgan('dev'));
     app.use(express.json());
     app.use(cors({origin: config.URL_FRONT}));
 //

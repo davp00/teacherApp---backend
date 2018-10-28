@@ -36,13 +36,15 @@ UserController.Login = async (req, res) =>
         if (bcrypt.compareSync(user.pass, found_user.pass))
         {
             let { _id, type, name} = found_user;
-            let tokenData = {_id, type, name};
+            let tokenData = {_id, type};
             let token = TokenController.Create(tokenData,2,'days');
-            res.status(200).send({token});
-            return;
-        }
+            res.status(200).send({token, name, type});
+        }else res.status(403).send({message: 'Contraseña incorrecta.'});
+    }else
+    {
+        res.status(403).send({message: 'Correo no coincide con ningun usuario.'});
     }
-    res.status(403).send({message: 'El correo electrónico y la contraseña no coinciden con ninguno de los registros'});
+    
 };
 
 
@@ -53,7 +55,7 @@ UserController.PasswordRecovery = async (req, res)=>
 
     if (!user)
     {
-        res.status(403).send({message: 'El correo no existe en los registros, por favor intente con otro'});
+        res.status(403).send({message: 'El correo no existe en los registros.'});
         return ;
     }
 
@@ -82,7 +84,7 @@ UserController.PasswordRecovery = async (req, res)=>
 
     transporter.sendMail(mailOptions, (error, info) =>
     {
-        if (error) res.json(error);
+        if (error) res.status(404).send({message: 'Ocurrio un error al enviar el correo'});
         else res.status(200).send({message: 'Un vinculo fue enviado a su correo para recuperar contraseña'});
     });
 };
