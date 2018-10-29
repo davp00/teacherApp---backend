@@ -6,7 +6,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(URI_DATABASE/*, { useNewUrlParser: true }*/).then(
     (stats) =>
     {
-        console.log("database connected");
+        console.log("database connected ");
     }
 ).catch(
     (error) =>
