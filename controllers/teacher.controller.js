@@ -35,27 +35,16 @@ TeacherController.getGroupStudents = async (req, res) =>
 
 TeacherController.NewLesson = async (req, res) =>
 {
-    let { groupCode, title} = req.body;
-    let code = await LessonModel.find().count() + 1;
-    let lesson = new LessonModel({
-        title,
-        code
-    });
-    lesson.save().then(
-        async ()=>
-        {
-            await GroupModel.updateOne({code: groupCode},
-            {$push:{lessons: lesson._id.toString()}}
-            );
-            res.status(200).send({message: 'Lección creada con exito', lessonCode: lesson.code});
-        }
-    ).catch(
-        (error)=>
-        {
-            console.log(error);
-            res.status(500).send({message:'ha ocurrio un error al guardar la lección'});
-        }
+    let { groupCode, title}     = req.body,
+        code                    = await LessonModel.find().countDocuments() + 1,
+        lesson                  = new LessonModel( { title, code } );
+
+    await lesson.save();
+    console.log(groupCode)
+    await GroupModel.updateOne({code: groupCode},
+        {   $push:{ lessons: lesson._id.toString() }  }
     );
+    res.status(200).send({message: 'Lección creada con exito', lessonCode: lesson.code});
 };
 
 
@@ -63,7 +52,7 @@ TeacherController.getLesson = async (req, res)=>
 {
     let { code } = req.params;
     LessonModel.findOne({code}).then(
-        ({title, finish_date})=>
+        ( { title, finish_date } )=>
         {
             res.status(200).json({title,finish_date});
         }
@@ -93,7 +82,59 @@ TeacherController.EndLesson = async(req, res) =>
         $set:{assisted,not_assisted,finish_date: Date.now()}
     });
 
+
     res.status(200).send({message:'Asistencia guardada con exito'});
+};
+
+
+FindStudent = (array , student) =>
+{
+    
+    for ( let element of array )
+    {
+        if ( element.code === student.code)
+        {
+            let index = array.indexOf(element);
+            array.splice(index, index);
+            return true;
+        }
+    }
+
+    return false;
+};
+
+
+SortByName = (a , b) =>
+{
+    if(a.name < b.name) { return -1;    }
+    if(a.name > b.name) { return 1;     }
+    return 0;
+}
+
+
+TeacherController.getGroupInformation = async ( req , res ) =>
+{
+    let { groupCode }   = req.params,
+    group               = await GroupModel.findOne({ code: groupCode, _idteacher: req.user._id }),
+    lessons             = await LessonModel.find({_id: { $in : group.lessons }}),
+    students            = group.students;
+
+    for (let lesson of lessons)
+    {
+
+        for (let student of students)
+        {
+            if (! student.assistanceList) { student.assistanceList = []; }
+            student.assistanceList.push(!FindStudent(lesson.not_assisted, student));
+        }
+
+        lesson.assisted.splice(0, lesson.assisted.length);
+    }
+
+    students.sort(SortByName);
+
+    res.json({students, lessons});
+    
 };
 
 
