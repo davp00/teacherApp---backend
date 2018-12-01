@@ -1,9 +1,9 @@
-const UserController = {};
-const UserModel = require('../models/UserModel');
-const nodemailer = require('nodemailer');
-const bcrypt = require('bcrypt-nodejs');
-const TokenController = require('./jwt.controller');
-const { URL_FRONT } = require('../config');
+const UserController        = {},
+    UserModel               = require('../models/UserModel'),
+    nodemailer              = require('nodemailer'),
+    bcrypt                  = require('bcrypt-nodejs'),
+    TokenController         = require('./jwt.controller'),
+    { URL_FRONT }           = require('../config');
 
 
 UserController.Create = async (req, res) =>
@@ -21,6 +21,8 @@ UserController.Create = async (req, res) =>
     {
         res.status(403).send({message: 'Ya hay un usuario existente con este correo'});
     }
+    /*await UserModel.updateMany({}, { $set: { "img_url": 'user.png'}});
+    res.json('okkk');*/
 };
 
 UserController.ProfileInfo = async ( req, res ) =>
@@ -126,6 +128,12 @@ UserController.ChangePassword = async (req, res)=>
 
     await UserModel.findByIdAndUpdate(_id, {$set:{pass, recovery_token: ""}});
     res.status(200).json({message: 'Contraseña cambiada con exito'});
+};
+
+
+UserController.UploadPhoto = async ( req , res ) =>
+{
+    res.json('OKKKK');
 };
 
 

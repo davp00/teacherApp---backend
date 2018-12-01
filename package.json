@@ -16,6 +16,8 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.4",
+    "express-form-data": "^2.0.6",
+    "express-formidable": "^1.2.0",
     "http": "0.0.0",
     "jwt-simple": "^0.5.5",
     "moment": "^2.22.2",

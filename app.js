@@ -10,6 +10,8 @@ const config = require('./config');
     const http = require('http');
     const server = http.createServer(app);
     const dbMongo = require('./database');
+    const formidable = require('express-form-data');
+    const bodyParser = require('body-parser');
 //
 
 
@@ -17,6 +19,9 @@ const config = require('./config');
     if(config.DEV)app.use(morgan('dev'));
     app.use(express.json());
     app.use(cors({origin: config.URL_FRONT}));
+    app.use(formidable.parse({ keepExtensions: true }));
+
+    app.use(express.static('./public'));
 //
 
 

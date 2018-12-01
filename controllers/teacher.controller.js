@@ -1,6 +1,7 @@
-const GroupModel = require('../models/GroupModel');
-const SubjectModel = require('../models/SubjectModel');
-const LessonModel = require('../models/LessonModel');
+const GroupModel    = require('../models/GroupModel');
+const SubjectModel  = require('../models/SubjectModel');
+const LessonModel   = require('../models/LessonModel');
+const UserModel     = require('../models/UserModel');
 const TeacherController = {};
 
 
@@ -27,9 +28,10 @@ TeacherController.getGroups = async (req, res) =>
 
 TeacherController.getGroupStudents = async (req, res) =>
 {
-    let { code } = req.params;
-    let group = await GroupModel.findOne({code:code});
-    res.status(200).json(group.students);
+    let { code }    = req.params;
+    let group       = await GroupModel.findOne({code:code});
+    let students    = await UserModel.find({_id: { $in : group.students }},{ groups:0, pass: 0, creation_date: 0, email: 0});
+    res.status(200).json(students);
 };
 
 
@@ -74,8 +76,8 @@ TeacherController.EndLesson = async(req, res) =>
     {
         if (student.assisted)
         {
-            assisted.push({_id:student._id, name:student.name, code:student.code});
-        }else not_assisted.push(student);
+            assisted.push(student._id);
+        }else not_assisted.push(student._id);
     }
 
     await LessonModel.updateOne({code},{
@@ -87,12 +89,12 @@ TeacherController.EndLesson = async(req, res) =>
 };
 
 
-FindStudent = (array , student) =>
+FindStudent = (array , _id) =>
 {
     
     for ( let element of array )
     {
-        if ( element.code === student.code)
+        if ( element === _id)
         {
             let index = array.indexOf(element);
             array.splice(index, index);
@@ -109,26 +111,23 @@ SortByName = (a , b) =>
     if(a.name < b.name) { return -1;    }
     if(a.name > b.name) { return 1;     }
     return 0;
-}
+};
 
 
 TeacherController.getGroupInformation = async ( req , res ) =>
 {
     let { groupCode }   = req.params,
     group               = await GroupModel.findOne({ code: groupCode, _idteacher: req.user._id }),
-    lessons             = await LessonModel.find({_id: { $in : group.lessons }}),
-    students            = group.students;
+    lessons             = await LessonModel.find({_id: { $in : group.lessons }} , {assisted: 0}),
+    students            = await UserModel.find({_id: { $in : group.students }},{ groups:0, pass: 0, creation_date: 0, email: 0});
 
     for (let lesson of lessons)
     {
-
         for (let student of students)
         {
-            if (! student.assistanceList) { student.assistanceList = []; }
-            student.assistanceList.push(!FindStudent(lesson.not_assisted, student));
+            if (! student.assistanceList ) { student.assistanceList = [];}
+            student.assistanceList.push(!FindStudent(lesson.not_assisted, student._id.toString()));
         }
-
-        lesson.assisted.splice(0, lesson.assisted.length);
     }
 
     students.sort(SortByName);

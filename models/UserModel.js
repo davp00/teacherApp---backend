@@ -11,7 +11,8 @@ const UserModel = new mongoose.Schema(
         img_url:        { type: String, required: false},
         groups:         { type: Array,  required: false, default: []},
         creation_date:  { type: Date,   default: Date.now},
-        recovery_token: { type: String, required: false, default: undefined}
+        recovery_token: { type: String, required: false, default: undefined},
+        assistanceList: { type: Array, required:false }
     }
 );
 
