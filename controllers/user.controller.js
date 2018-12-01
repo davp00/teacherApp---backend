@@ -3,7 +3,9 @@ const UserController        = {},
     nodemailer              = require('nodemailer'),
     bcrypt                  = require('bcrypt-nodejs'),
     TokenController         = require('./jwt.controller'),
-    { URL_FRONT }           = require('../config');
+    { URL_FRONT }           = require('../config'),
+    ImageModel              = require('../models/ImageModel'),
+    fs                      = require('fs');
 
 
 UserController.Create = async (req, res) =>
@@ -133,7 +135,21 @@ UserController.ChangePassword = async (req, res)=>
 
 UserController.UploadPhoto = async ( req , res ) =>
 {
-    res.json('OKKKK');
+    const { photo } = req.files;
+    const extension = photo.originalFilename.split('.').pop();
+
+    const image     = new ImageModel({
+        _idUser         : req.user._id,
+        size            : photo.size,
+        originalName    : photo.originalFilename,
+        extension       : extension
+    });
+
+    await  image.save();
+    let newFileName = image._id.toString() + '.' + extension;
+    fs.renameSync(photo.path, `./public/images/${ newFileName }`);
+    await UserModel.updateOne({_id: req.user._id} , {$set: { img_url: newFileName}});
+    res.status(200).json({message: 'Imagen subida con exito', img_url: newFileName});
 };
 
 

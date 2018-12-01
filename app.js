@@ -28,6 +28,7 @@ const config = require('./config');
 // Routes
     app.use('/api/users', require('./routes/user.routes'));
     app.use('/api/teacher', require('./routes/teacher.routes'));
+    app.use('/api/students', require('./routes/students.routes'));
 //
 
 
