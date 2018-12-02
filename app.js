@@ -12,6 +12,8 @@ const config = require('./config');
     const dbMongo = require('./database');
     const formidable = require('express-form-data');
     const bodyParser = require('body-parser');
+    const io         = require('socket.io').listen(server);
+    const socketChat = require('./sockets/activity.chat')(io);
 //
 
 

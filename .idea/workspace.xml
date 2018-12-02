@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c9c8446-b162-4da7-8226-7739c891dbad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/controllers/activity.controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/ActivityModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/activity.routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sockets/activity.chat.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/teacher.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/teacher.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/students.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/students.routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/teacher.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/teacher.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controllers/student.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/student.controller.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,8 +24,8 @@
     <session id="1427840577">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
-          <entry key="project.open.time.0" value="1" />
+          <entry key="project.closed" value="18" />
+          <entry key="project.open.time.0" value="2" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.22" value="1" />
@@ -39,14 +36,14 @@
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="18" />
+          <entry key="project.opened" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gitignore" value="4" />
           <entry key="jpg" value="1" />
-          <entry key="js" value="155" />
+          <entry key="js" value="161" />
           <entry key="json" value="5" />
           <entry key="txt" value="2" />
         </counts>
@@ -55,14 +52,14 @@
         <counts>
           <entry key="Image" value="1" />
           <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="155" />
+          <entry key="JavaScript" value="161" />
           <entry key="PLAIN_TEXT" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="37" />
-          <entry key="js" value="20741" />
+          <entry key="js" value="21817" />
           <entry key="json" value="50" />
         </counts>
       </usages-collector>
@@ -70,7 +67,7 @@
         <counts>
           <entry key="HTML" value="5" />
           <entry key="JSON" value="50" />
-          <entry key="JavaScript" value="20736" />
+          <entry key="JavaScript" value="21812" />
           <entry key="PLAIN_TEXT" value="37" />
         </counts>
       </usages-collector>
@@ -79,19 +76,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/teacher.controller.js">
+        <entry file="file://$PROJECT_DIR$/sockets/activity.chat.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="142" column="59" selection-start-line="142" selection-start-column="59" selection-end-line="142" selection-end-column="59" />
+            <state relative-caret-position="442">
+              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controllers/activity.controller.js">
+        <entry file="file://$PROJECT_DIR$/controllers/student.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+            <state relative-caret-position="208">
+              <caret line="51" column="89" selection-start-line="51" selection-start-column="89" selection-end-line="51" selection-end-column="89" />
             </state>
           </provider>
         </entry>
@@ -124,7 +121,6 @@
         <option value="$PROJECT_DIR$/models/SubjectModel.js" />
         <option value="$PROJECT_DIR$/models/GroupModel.js" />
         <option value="$PROJECT_DIR$/controllers/jwt.controller.js" />
-        <option value="$PROJECT_DIR$/config.js" />
         <option value="$PROJECT_DIR$/models/LessonModel.js" />
         <option value="$PROJECT_DIR$/database.js" />
         <option value="$PROJECT_DIR$/models/UserModel.js" />
@@ -135,14 +131,16 @@
         <option value="$PROJECT_DIR$/models/FileModel.js" />
         <option value="$PROJECT_DIR$/controllers/user.controller.js" />
         <option value="$PROJECT_DIR$/controllers/mail.controller.js" />
-        <option value="$PROJECT_DIR$/controllers/student.controller.js" />
         <option value="$PROJECT_DIR$/routes/students.routes.js" />
         <option value="$PROJECT_DIR$/routes/teacher.routes.js" />
         <option value="$PROJECT_DIR$/models/ActivityModel.js" />
         <option value="$PROJECT_DIR$/controllers/teacher.controller.js" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/routes/activity.routes.js" />
         <option value="$PROJECT_DIR$/controllers/activity.controller.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/config.js" />
+        <option value="$PROJECT_DIR$/sockets/activity.chat.js" />
+        <option value="$PROJECT_DIR$/controllers/student.controller.js" />
       </list>
     </option>
   </component>
@@ -161,10 +159,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="100" />
-    <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="820" />
+    <option name="x" value="793" />
+    <option name="width" value="814" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -189,6 +186,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -196,11 +194,26 @@
               <item name="backend" type="b2602c69:ProjectViewProjectNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -256,18 +269,19 @@
       <workItem from="1543354291832" duration="14000" />
       <workItem from="1543354487419" duration="646000" />
       <workItem from="1543676087634" duration="11035000" />
-      <workItem from="1543691191862" duration="22289000" />
+      <workItem from="1543691191862" duration="22452000" />
+      <workItem from="1543760423919" duration="6896000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88339000" />
+    <option name="totallyTimeSpent" value="95398000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22370088" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13181242" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -303,9 +317,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../node pj/app2/server/routes/user.routes.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../node pj/app2/server/app.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../node pj/app2/server/models/users.model.js">
@@ -353,13 +364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="4" column="48" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/jwt.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -382,12 +386,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/files/5c030c4d96fc63021885fdc0.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/files/5c030c4b96fc63021885fdbf.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/files/5c030c4d96fc63021885fdc0.txt" />
+    <entry file="file://$PROJECT_DIR$/public/files/5c030c4b96fc63021885fdbf.txt" />
     <entry file="file://$PROJECT_DIR$/models/FileModel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="78">
@@ -430,13 +430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/student.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-476">
-          <caret line="38" selection-start-line="38" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/students.routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -465,13 +458,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="31" column="68" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/activity.routes.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
@@ -481,7 +467,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/teacher.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
+        <state relative-caret-position="3692">
           <caret line="142" column="59" selection-start-line="142" selection-start-column="59" selection-end-line="142" selection-end-column="59" />
         </state>
       </provider>
@@ -489,7 +475,40 @@
     <entry file="file://$PROJECT_DIR$/controllers/activity.controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
-          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <caret line="10" selection-start-line="10" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../node pj/app2/server/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1638" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sockets/activity.chat.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/student.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="51" column="89" selection-start-line="51" selection-start-column="89" selection-end-line="51" selection-end-column="89" />
         </state>
       </provider>
     </entry>

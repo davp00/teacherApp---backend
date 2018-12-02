@@ -45,11 +45,11 @@ StudentController.getLessons = async ( req, res ) =>
 
 StudentController.SendExcuse = async ( req, res ) =>
 {
-    let urlHost = req.headers.host;
+    let urlHost = 'https://teacherapp1.herokuapp.com';
     let { fileExcuse }                  = req.files,
         extension                       = fileExcuse.originalFilename.split('.').pop(),
         {groupCode, lesson, message}    = req.body,
-        lessonInfo                      = await LessonModel.findOne({code:Number(lesson)}, {name:1 , finish_date:1});
+        lessonInfo                      = await LessonModel.findOne({code:lesson}, {title:1 , finish_date:1});
 
     let user = await UserModel.findById(req.user._id),
         group = await GroupModel.findOne({code: groupCode}),
@@ -71,7 +71,6 @@ StudentController.SendExcuse = async ( req, res ) =>
         Mensaje de ${ user.name }: <br>
         <strong>${message}</strong>
     `;
-
     SendMail(teacher.email,'Excusa enviada por estudiante', html, function (error, info) {
         if (error) res.status(404).send({message: 'Ha ocurrido un error al enviar el correo'});
         else res.status(200).send({message: 'Su excusa fue enviada con exito'});
