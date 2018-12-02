@@ -1,8 +1,9 @@
-const GroupModel    = require('../models/GroupModel');
-const SubjectModel  = require('../models/SubjectModel');
-const LessonModel   = require('../models/LessonModel');
-const UserModel     = require('../models/UserModel');
 const TeacherController = {};
+const GroupModel        = require('../models/GroupModel');
+const SubjectModel      = require('../models/SubjectModel');
+const LessonModel       = require('../models/LessonModel');
+const UserModel         = require('../models/UserModel');
+const ActivityModel     = require('../models/ActivityModel');
 
 
 TeacherController.Auth = (req, res, next) =>
@@ -134,6 +135,23 @@ TeacherController.getGroupInformation = async ( req , res ) =>
 
     res.json({students, lessons});
     
+};
+
+
+TeacherController.newActivity = async ( req , res ) =>
+{
+    let code        = await ActivityModel.find().count() + 1 ;
+    let { title, points, groupCode } = req.body;
+    let newActivity = new ActivityModel({
+        title,
+        points,
+        code,
+        groupCode,
+        _idteacher: req.user._id
+    });
+
+    await newActivity.save();
+    res.status(200).json({activityCode: newActivity.code});
 };
 
 

@@ -14,4 +14,6 @@ Router.put('/group/lesson', TokenController.isAuth, TeacherController.Auth, Teac
 
 Router.get('/group/:groupCode/info', TokenController.isAuth, TeacherController.Auth, TeacherController.getGroupInformation);
 
+Router.post('/activity', TokenController.isAuth, TeacherController.Auth, TeacherController.newActivity);
+
 module.exports = Router;
